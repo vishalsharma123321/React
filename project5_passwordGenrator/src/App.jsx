@@ -26,11 +26,11 @@ function App() {
   }
     , [length, Number, char, setpassword])
 
-    const copyPasswordToClipboard = useCallback(() => { 
-      passwordRef.current?.select();
-      window.navigator.clipboard.writeText(password)
-    },
-      [password])
+  const copyPasswordToClipboard = useCallback(() => {
+    passwordRef.current?.select();
+    window.navigator.clipboard.writeText(password)
+  },
+    [password])
 
   useEffect(() => {
     passwordGenerator()
@@ -52,7 +52,11 @@ function App() {
 
           <button
             onClick={copyPasswordToClipboard}
-            className=' p-2 px-3 bg-red-400 text-black font-semibold '>copy</button>
+            className='p-2 px-3 bg-red-400 text-black font-semibold transition-transform duration-200 ease-in-out active:scale-95'
+          >
+            Copy
+          </button>
+
         </div>
         <div className=' flex text-sm gap-x-2'>
           <div className='flex items-center gap-x-1'>
